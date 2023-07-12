@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tambah Berita</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <style>
+    .add-news-container {
+      max-width: 600px;
+      margin: 0 auto;
+      margin-top: 50px;
+    }
+    .add-news-container h2 {
+      margin-bottom: 20px;
+    }
+    .add-news-container form .form-group label {
+      font-weight: bold;
+    }
+    .add-news-container form .form-group input[type="text"],
+    .add-news-container form .form-group textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+    .add-news-container form .form-group .btn-add-news {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="add-news-container">
+      <h2>Tambah Berita</h2>
+      <form action="/admin/add" method="POST">
+        <div class="form-group">
+          <label for="title">Judul</label>
+          <input type="text" name="title" id="title" required>
+        </div>
+        <div class="form-group">
+          <label for="author">Author</label>
+          <input type="text" name="author" id="author" required>
+        </div>
+        <div class="form-group">
+          <label for="content">Content</label>
+          <textarea name="content" id="content" rows="5" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary btn-add-news">Tambah</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

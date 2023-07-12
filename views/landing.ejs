@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Portal Berita</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    />
+    <style>
+      .news-card {
+        margin-bottom: 20px;
+      }
+      .news-card .card-body {
+        padding: 20px;
+      }
+      .news-card .card-title {
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+      .news-card .card-text {
+        margin-bottom: 10px;
+      }
+      .news-card .card-text span {
+        font-weight: bold;
+      }
+      .news-card .card-text p {
+        margin-bottom: 0;
+      }
+      header {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <div class="row justify-content-between align-items-center">
+          <!-- Open Title -->
+          <h1 class="mt-4 mb-4 ml-2">Portal Berita</h1>
+          <!-- Close Title -->
+        </div>
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-light">
+          <div class="container-fluid">
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarNav"
+              aria-controls="navbarNav"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="#"
+                    >Home</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Berita</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Service</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="http://localhost:3000/admin"
+                    >Login Up</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+        <!-- Penutup Navbar -->
+      </header>
+
+      <!-- Open News -->
+      <h1 class="mt-4 mb-4">Latest News</h1>
+      <div class="row">
+        <% news.forEach(function(newsItem) { %>
+        <div class="col-md-6">
+          <div class="card news-card bg-primary">
+            <div class="card-body">
+              <h5 class="card-title"><%= newsItem.title %></h5>
+              <p class="card-text">
+                <span>Author:</span> <%= newsItem.author %>
+              </p>
+              <p class="card-text">
+                <span>Published:</span> <%=
+                newsItem.created_at.toISOString().slice(0, 10) %>
+              </p>
+              <p class="card-text"><%= newsItem.content %></p>
+            </div>
+          </div>
+        </div>
+        <% }) %>
+      </div>
+    </div>
+    <!-- Close News -->
+  </body>
+</html>

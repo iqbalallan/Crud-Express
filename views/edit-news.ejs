@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Edit News</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    />
+    <style>
+      .edit-news-container {
+        max-width: 600px;
+        margin: 0 auto;
+        margin-top: 50px;
+      }
+      .edit-news-container h2 {
+        margin-bottom: 20px;
+      }
+      .edit-news-container form .form-group label {
+        font-weight: bold;
+      }
+      .edit-news-container form .form-group input[type="text"],
+      .edit-news-container form .form-group textarea {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+      }
+      .edit-news-container form .form-group .btn-edit-news {
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="edit-news-container">
+        <h2>Edit News</h2>
+        <form action="/admin/edit/<%= news.id %>" method="POST">
+          <div class="form-group">
+            <label for="title">Title</label>
+            <input
+              type="text"
+              name="title"
+              id="title"
+              value="<%= news.title %>"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="author">Author</label>
+            <input
+              type="text"
+              name="author"
+              id="author"
+              value="<%= news.author %>"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="author">created_at</label>
+            <input
+              type="text"
+              name="created_at"
+              id="created_at"
+              value="<%= news.created_at %>"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="content">Content</label>
+            <textarea name="content" id="content" rows="5" required>
+<%= news.content %></textarea
+            >
+          </div>
+          <button type="submit" class="btn btn-primary btn-edit-news">
+            Update News
+          </button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
